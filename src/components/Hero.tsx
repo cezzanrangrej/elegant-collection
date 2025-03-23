@@ -1,13 +1,24 @@
 
 import { ArrowDownCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const handleScrollDown = () => {
     const nextSection = document.getElementById('about');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleNavigateToProjects = () => {
+    navigate('/projects');
+  };
+
+  const handleNavigateToContact = () => {
+    navigate('/contact');
   };
 
   return (
@@ -31,10 +42,10 @@ const Hero = () => {
           </p>
           
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button size="lg" className="rounded-full">
+            <Button size="lg" className="rounded-full" onClick={handleNavigateToProjects}>
               View Projects
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full">
+            <Button size="lg" variant="outline" className="rounded-full" onClick={handleNavigateToContact}>
               Contact Me
             </Button>
           </div>

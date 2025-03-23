@@ -2,6 +2,7 @@
 import { ExternalLink, Github, Link2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useNavigate } from 'react-router-dom';
 
 // Sample projects data
 const projects = [
@@ -35,6 +36,12 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const navigate = useNavigate();
+
+  const handleViewAllProjects = () => {
+    navigate('/projects');
+  };
+
   return (
     <section className="section">
       <h2 className="section-title">Development Projects</h2>
@@ -90,7 +97,11 @@ const ProjectsSection = () => {
       </div>
       
       <div className="mt-12 text-center">
-        <Button size="lg" className="rounded-full flex items-center gap-2">
+        <Button 
+          size="lg" 
+          className="rounded-full flex items-center gap-2"
+          onClick={handleViewAllProjects}
+        >
           <Link2 className="h-5 w-5" />
           <span>View All Projects</span>
         </Button>
